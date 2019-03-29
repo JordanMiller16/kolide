@@ -1,5 +1,12 @@
 #!/bin/bash
 
+WHOAMI=`whoami`
+if [[ ! "$WHOAMI" == "root" ]]
+then
+    echo "ERROR!!!!!!! You must run this a root or use sudo. Aborting"
+    exit -1
+fi
+
 sudo dpkg -i osquery.deb;
 sudo dpkg -i /var/osquery/osqueryBinary.deb;
 
